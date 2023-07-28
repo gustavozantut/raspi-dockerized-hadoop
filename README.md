@@ -84,3 +84,5 @@ IMAGE_NAME=gradiant/hdfs:2.7.7 ./test-hdfs-multiple-datanodes.sh
 
 They deploy a hdfs cluster, create a folder in hdfs, copy a file from local to the folder, and remove file and folder. Finally they stop and remove the cluster containers.
 
+
+https://hub.docker.com/repository/docker/guhzantut/raspi-hdfs
