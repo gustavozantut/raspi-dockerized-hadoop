@@ -40,6 +40,3 @@ volumes:
       type: cifs
       o: username=${CIFS_USERNAME},password=${CIFS_PASSWORD}
       device: //192.168.14.1/sandbox/hdfs/namenode
-
-networks:
-  hdfs:
