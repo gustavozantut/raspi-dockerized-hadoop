@@ -16,8 +16,6 @@ services:
       - 1225:9870
       - 50075:50075
 
- 
-
   datanode-0:
     image: $IMAGE_REPO:$IMAGE_TAG_WSL
     environment:
@@ -28,7 +26,6 @@ services:
       - data-0:/hadoop/dfs
     command:
       - datanode
-    network_mode: "host"
 
 volumes:
   
