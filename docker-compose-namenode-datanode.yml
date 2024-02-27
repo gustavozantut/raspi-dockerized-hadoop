@@ -21,7 +21,7 @@ services:
   datanode-0:
     image: $IMAGE_REPO:$IMAGE_TAG_WSL
     environment:
-      - CORE_CONF_fs_defaultFS=hdfs://0.0.0.0:8020
+      - CORE_CONF_fs_defaultFS=hdfs://0.0.0.0:1225
       - HDFS_CONF_dfs_replication=1
       - HDFS_CONF_dfs_webhdfs_enabled=1
     volumes:
