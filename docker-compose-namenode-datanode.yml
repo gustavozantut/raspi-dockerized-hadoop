@@ -10,7 +10,11 @@ services:
       - name:/hadoop/dfs
     command:
       - namenode
-    network_mode: "host"
+    ports:
+      - 8020:8020
+      - 50070:50070
+      - 1225:9870
+      - 50075:50075
 
  
 

@@ -33,17 +33,16 @@ RUN apt-get update && apt-get install -y curl procps && rm -rf /var/lib/apt/list
    
 
 COPY entrypoint.sh /entrypoint.sh
+RUN sed -i 's/\r$//' /entrypoint.sh
 
 USER hdfs
-WORKDIR /opt/hadoop
 
+WORKDIR /opt/hadoop
 VOLUME /dfs
 
 EXPOSE 8020 
-
 # HDFS 2.x web interface
 EXPOSE 50070
-
 # HDFS 3.x web interface
 EXPOSE 9870
 
