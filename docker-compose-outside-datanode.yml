@@ -17,4 +17,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /sandbox/hdfs/datanode
+      device: /sandbox/hdfs/datanode1
