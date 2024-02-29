@@ -1,5 +1,16 @@
 version: '3'
 services:
+    datanode-0:
+    image: $IMAGE_REPO:$IMAGE_TAG_RASPI
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+      - HDFS_CONF_dfs_replication=1
+      - HDFS_CONF_dfs_webhdfs_enabled=1
+    volumes:
+      - data-0:/hadoop/dfs
+    command:
+      - datanode
+
   namenode:
     image: $IMAGE_REPO:$IMAGE_TAG_RASPI
     environment:
@@ -16,17 +27,6 @@ services:
       - 55070:50070
       - 9870:9870
       - 55075:50075
-
-  datanode-0:
-    image: $IMAGE_REPO:$IMAGE_TAG_RASPI
-    environment:
-      - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-      - HDFS_CONF_dfs_replication=1
-      - HDFS_CONF_dfs_webhdfs_enabled=1
-    volumes:
-      - data-0:/hadoop/dfs
-    command:
-      - datanode
 
 volumes:
   data-0:
