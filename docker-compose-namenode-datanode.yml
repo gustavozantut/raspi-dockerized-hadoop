@@ -9,7 +9,7 @@ services:
     volumes:
       - data-0:/hadoop/dfs
     command:
-      - datanode
+      - hdfs namenode -format
   namenode:
     image: $IMAGE_REPO:$IMAGE_TAG_RASPI
     environment:
@@ -20,7 +20,7 @@ services:
     volumes:
       - name:/hadoop/dfs
     command:
-      - namenode
+      - hdfs namenode -format
     ports:
       - 8020:8020
       - 55070:50070
