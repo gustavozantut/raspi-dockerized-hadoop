@@ -11,11 +11,7 @@ services:
       - name:/hadoop/dfs
     command:
       - namenode
-    ports:
-      - 8020:8020
-      - 55070:50070
-      - 9870:9870
-      - 55075:50075
+    network_mode: "host"
 
   datanode-0:
     image: $IMAGE_REPO:$IMAGE_TAG_RASPI
