@@ -1,9 +1,9 @@
 version: '3'
 services:
   namenode:
-    image: $IMAGE_REPO:$IMAGE_TAG_WSL
+    image: $IMAGE_REPO:$IMAGE_TAG_RASPI
     environment:
-      - CORE_CONF_fs_defaultFS=hdfs://192.168.0.210:8020
+      - CORE_CONF_fs_defaultFS=hdfs://192.168.0.101:8020
       - HDFS_CONF_dfs_webhdfs_enabled=1
       - HDFS_CONF_dfs_replication=1
       - HDFS_CONF_dfs_permissions_enabled=false
@@ -18,7 +18,7 @@ services:
       - 55075:50075
 
   datanode-0:
-    image: $IMAGE_REPO:$IMAGE_TAG_WSL
+    image: $IMAGE_REPO:$IMAGE_TAG_RASPI
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
       - HDFS_CONF_dfs_replication=1
