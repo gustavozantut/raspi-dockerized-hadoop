@@ -10,7 +10,6 @@ services:
       - data-0:/hadoop/dfs
     command:
       - datanode
-    network_mode: "host"
 
 volumes:
   data-0:
