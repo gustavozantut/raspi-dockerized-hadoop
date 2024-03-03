@@ -3,7 +3,6 @@ services:
   namenode:
     image: $IMAGE_REPO:$IMAGE_TAG_WSL
     environment:
-      - CORE_CONF_fs_defaultFS=hdfs://192.168.0.210:8020
       - HDFS_CONF_dfs_webhdfs_enabled=1
       - HDFS_CONF_dfs_replication=1
       - HDFS_CONF_dfs_permissions_enabled=false
@@ -13,9 +12,9 @@ services:
       - namenode
     ports:
       - 8020:8020
-      - 55070:50070
+      - 50070:50070
       - 9870:9870
-      - 55075:50075
+      - 50075:50075
 
   datanode-0:
     image: $IMAGE_REPO:$IMAGE_TAG_WSL
@@ -30,15 +29,13 @@ services:
 
 volumes:
   data-0:
-    driver: local
     driver_opts:
-      type: none
-      o: bind
-      device: /sandbox/hdfs/datanode
+      type: cifs
+      o: username=${CIFS_USERNAME},password=${CIFS_PASSWORD}
+      device: //192.168.14.1/sandbox/hdfs/datanode
       
   name:
-    driver: local
     driver_opts:
-      type: none
-      o: bind
-      device: /sandbox/hdfs/namenode
+      type: cifs
+      o: username=${CIFS_USERNAME},password=${CIFS_PASSWORD}
+      device: //192.168.14.1/sandbox/hdfs/namenode
