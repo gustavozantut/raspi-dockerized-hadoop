@@ -30,11 +30,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /mnt/usb/sandbox/hdfs/datanode
+      device: /sandbox/hdfs/datanode
       
   name:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /mnt/usb/sandbox/hdfs/namenode
+      device: /sandbox/hdfs/namenode
